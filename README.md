@@ -1,23 +1,25 @@
-# vault-rules
+# TomeVault scan rules
 
-Public, version-controlled scan rules that TomeVault runs against indexed AI instruction files.
+The public, version-controlled scan rules that TomeVault runs against every indexed AI instruction file.
 
 ## Why this repository exists
 
-TomeVault scans every indexed file (CLAUDE.md, AGENTS.md, GEMINI.md, SKILL.md, Cursor rules, Copilot instructions, Windsurf rules, and related formats) for security, prompt-injection, and data-exfiltration risks. The rules that drive those scans live here so anyone can audit exactly what the scanner looks for, propose changes, and watch the rule set evolve.
+TomeVault scans every indexed file (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `SKILL.md`, Cursor rules, Copilot instructions, Windsurf rules, and related formats) for security, prompt-injection, and data-exfiltration risk. The rules that drive those scans live here, in the open, so anyone can audit exactly what the scanner looks for, propose changes, and watch the rule set evolve.
 
-Full scanning policy: [tomevault.io/policy/security-scanning](https://tomevault.io/policy/security-scanning)
+A scanner whose rules are hidden asks you to trust the result. One whose rules are public lets you check it. The verification layer is only as credible as the rules behind it, so the rules are not a secret.
+
+How scanning works: [tomevault.io/standards/security-scanning](https://tomevault.io/standards/security-scanning)
 
 ## Layout
 
 ```
 v1/
-  credential.yaml     — API keys, tokens, private keys
-  command.yaml        — destructive shell patterns, privilege escalation
-  exfiltration.yaml   — secrets-to-URL, reverse shells
-  injection.yaml      — prompt-injection patterns (jailbreak, override, etc.)
-  file_access.yaml    — /etc/passwd, SSH keys, /proc, docker socket
-  obfuscation.yaml    — base64 blobs, zero-width chars, encoded payloads
+  credential.yaml     API keys, tokens, private keys
+  command.yaml        destructive shell patterns, privilege escalation
+  exfiltration.yaml   secrets-to-URL, reverse shells
+  injection.yaml      prompt-injection patterns (jailbreak, override, etc.)
+  file_access.yaml    /etc/passwd, SSH keys, /proc, docker socket
+  obfuscation.yaml    base64 blobs, zero-width chars, encoded payloads
 ```
 
 Each rule has:
@@ -39,9 +41,9 @@ Ratified changes land as tagged releases (`v1.0.0`, `v1.1.0`, ...). Scanners pic
 
 Semantic versioning, scoped to behavior change:
 
-- **Major** — a change that would reclassify existing indexed files across grade boundaries (e.g., demoting a rule from `critical` to `medium`, adding a wide-reaching rule).
-- **Minor** — additive rules or clarifications that do not move existing files across grades.
-- **Patch** — documentation, pattern tightening that reduces false positives without adding coverage.
+- **Major**: a change that would reclassify existing indexed files across grade boundaries (e.g., demoting a rule from `critical` to `medium`, adding a wide-reaching rule).
+- **Minor**: additive rules or clarifications that do not move existing files across grades.
+- **Patch**: documentation, pattern tightening that reduces false positives without adding coverage.
 
 ## License
 
