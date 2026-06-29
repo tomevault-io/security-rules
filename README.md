@@ -1,14 +1,14 @@
-# TomeVault scan rules
+# TomeVault security rules
 
-The public, version-controlled scan rules that TomeVault runs against every indexed AI instruction file.
+The public, versioned scan rules behind the safety check in every TomeVault verdict.
 
 ## Why this repository exists
 
-TomeVault scans every indexed file (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `SKILL.md`, Cursor rules, Copilot instructions, Windsurf rules, and related formats) for security, prompt-injection, and data-exfiltration risk. The rules that drive those scans live here, in the open, so anyone can audit exactly what the scanner looks for, propose changes, and watch the rule set evolve.
+TomeVault grades the files that steer AI agents (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `SKILL.md`, Cursor rules, Copilot instructions, Windsurf rules, and related formats) on four things: whether they load, whether they're clear enough to follow, whether they're safe, and whether they hold up across models. This repository holds the rules behind the safety check, the patterns we match for credential leaks, prompt injection, and data exfiltration. They live here in the open, so anyone can audit exactly what the scanner looks for, propose changes, and watch the rule set evolve.
 
-A scanner whose rules are hidden asks you to trust the result. One whose rules are public lets you check it. The verification layer is only as credible as the rules behind it, so the rules are not a secret.
+A scanner whose rules are hidden asks you to trust the result. One whose rules are public lets you check it. A verdict is only as credible as the rules behind it, so the rules are not a secret. And we don't sell the models or tools we grade for, which is the one position a model vendor scoring its own model can't hold.
 
-How scanning works: [tomevault.io/standards/security-scanning](https://tomevault.io/standards/security-scanning)
+The full standard, and how we grade, sign, and ratify: [tomevault.io/standards](https://tomevault.io/standards). How security scanning works: [tomevault.io/standards/security-scanning](https://tomevault.io/standards/security-scanning).
 
 ## Layout
 
